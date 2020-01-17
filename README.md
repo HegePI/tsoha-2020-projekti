@@ -4,3 +4,6 @@ D&D -pöytäkirjasovelluksella käyttäjät voivat pitää kirjaa aloittamiensa 
 
 #
 Alustavassa versioissa sovelluksessa on mahdollista aloittaa uusi seikkailu, jonne käyttäjät luovat hahmot. Ainostaan dungeon master pystyy muuttamaan hahmojen tilaa ja lisätä tai poistaa näiltä esineitä.
+
+#
+[Alustava tietokannan relaatiomalli](https://github.com/HegePI/tsoha-2020-projekti/blob/master/tietokantakaavio.md)
