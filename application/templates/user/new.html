@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if error %}
+<p class=error><strong>{{ error }}</strong>
+{% endif %}
+
+<h3>Luo uusi käyttäjä sovellukseen</h3>
+<br/>
+<form method="POST" action="{{ url_for('newUser_create') }}">
+    Käyttäjänimi: <input type="text" name="username" />
+    Salasana: <input type="text" name="password" />
+    <input type="submit" value="create a new user" />
+</form>
+{% endblock %}
