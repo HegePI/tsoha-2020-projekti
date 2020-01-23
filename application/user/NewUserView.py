@@ -1,15 +1,15 @@
 from application import app, db
 from flask import Flask, flash, redirect, render_template, request, url_for
-from application.user.models import User
+from application.user.Models import User
 
 
 @app.route("/newUser")
-def newUser_form():
+def new_user_form():
     return render_template("user/new.html")
 
 
 @app.route("/newUser", methods=["POST"])
-def newUser_create():
+def create_new_user():
     username = request.form.get("username")
     password = request.form.get("password")
 

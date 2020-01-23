@@ -1,6 +1,6 @@
 from application import app, db
 from flask import Flask, flash, redirect, render_template, request, url_for
-from application.user.models import User
+from application.user.Models import User
 
 
 @app.route("/login")
@@ -19,5 +19,4 @@ def login():
         error = "Käyttäjänimi tai salasana väärin."
         return render_template("login/login.html", error=error)
     else:
-        message = "kirjauduttiin onnistuneesti!"
-        return render_template("menu/menu.html", message=message)
+        return redirect(url_for("main_menu", user_id=user.id))

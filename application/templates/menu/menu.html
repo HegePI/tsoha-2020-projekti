@@ -6,5 +6,15 @@
 {{ message }}
 {% endif %}
 
+{% if error %}
+<p class=error><strong>{{ error }}</strong>
+{% endif %}
+
 <h1>Tervetuloa D&D -pöytäkirjasovellukseen!</h1>
+<h3>logged in as {{user.username}}</h3>
+
+<a href="{{url_for('edit_userinfo_form', user_id=user.id)}}">Muuta käyttäjän tietoja</a>
+<br>
+<a href="{{url_for('login')}}">Kirjaudu ulos</a>
+
 {% endblock %}

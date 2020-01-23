@@ -7,3 +7,6 @@ Alustavassa versioissa sovelluksessa on mahdollista aloittaa uusi seikkailu, jon
 
 #
 [Alustava tietokannan relaatiomalli](https://github.com/HegePI/tsoha-2020-projekti/blob/master/docs/tietokantakaavio.md)
+
+#
+Sovellus löytyy herokusta [osoitteesta](https://dnd-register.herokuapp.com/)

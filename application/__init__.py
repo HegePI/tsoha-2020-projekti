@@ -17,9 +17,11 @@ db = SQLAlchemy(app)
 
 from application import views
 
-from application.user import models
-from application.user import newUserView
-from application.login import loginView
+from application.login import LoginView
+from application.menu import MenuView
+from application.user import Models
+from application.user import NewUserView
+from application.user import EditUserInfoView
 
 
 db.create_all()
