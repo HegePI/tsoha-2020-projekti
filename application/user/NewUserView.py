@@ -21,7 +21,8 @@ def create_new_user():
         return render_template("user/new.html", error=error)
     else:
         hashed_password = bcrypt.generate_password_hash(password, 10)
-        user = User(username, hashed_password)
+        utf8_hashed_password = hashed_password.decode("utf-8", "ignore")
+        user = User(username, utf8_hashed_password)
         db.session().add(user)
         db.session().commit()
         message = "käyttäjä luotiin onnistuneesti!"
