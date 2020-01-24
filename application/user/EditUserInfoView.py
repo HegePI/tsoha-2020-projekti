@@ -1,4 +1,4 @@
-from application import app, db
+from application import app, db, bcrypt
 from flask import Flask, flash, redirect, render_template, request, url_for
 from application.user.Models import User
 
@@ -11,9 +11,11 @@ def edit_userinfo(user_id):
     new_username = request.form.get("username")
     new_password = request.form.get("password")
 
+    hashed_new_password = bcrypt.generate_password_hash(new_password, 10)
+
     user = User.query.get(user_id)
     user.username = new_username
-    user.password = new_password
+    user.password = hashed_new_password
     db.session().commit()
 
     message = "Käyttäjän tiedot päivitetty"

@@ -1,5 +1,6 @@
-from application import app, db
+from application import app, db, bcrypt
 from flask import Flask, flash, redirect, render_template, request, url_for
+from flask_bcrypt import Bcrypt
 from application.user.Models import User
 
 
@@ -13,10 +14,13 @@ def login():
     username = request.form.get("username")
     password = request.form.get("password")
 
-    user = User.query.filter_by(username=username, password=password).first()
+    user = User.query.filter_by(username=username).first()
 
     if user == None:
-        error = "Käyttäjänimi tai salasana väärin."
+        error = "Kyseistä käyttäjää ei ole olemassa"
         return render_template("login/login.html", error=error)
-    else:
+    elif bcrypt.check_password_hash(user.password, password):
         return redirect(url_for("main_menu", user_id=user.id))
+    else: 
+        error = "Salasana väärin"
+        return render_template("login/login.html", error=error)

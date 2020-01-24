@@ -1,5 +1,6 @@
-from application import app, db
+from application import app, db, bcrypt
 from flask import Flask, flash, redirect, render_template, request, url_for
+from flask_bcrypt import Bcrypt
 from application.user.Models import User
 
 
@@ -19,7 +20,8 @@ def create_new_user():
         error = "Käyttäjänimi on jo käytössä."
         return render_template("user/new.html", error=error)
     else:
-        user = User(username, password)
+        hashed_password = bcrypt.generate_password_hash(password, 10)
+        user = User(username, hashed_password)
         db.session().add(user)
         db.session().commit()
         message = "käyttäjä luotiin onnistuneesti!"
