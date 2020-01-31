@@ -12,8 +12,11 @@ def new_user_form():
 
 @app.route("/newUser", methods=["POST"])
 def create_new_user():
-    username = request.form.get("username")
-    password = request.form.get("password")
+
+    form = UserForm(request.form)
+
+    username = form.username.data
+    password = form.password.data
 
     user = User.query.filter_by(username=username).first()
 
