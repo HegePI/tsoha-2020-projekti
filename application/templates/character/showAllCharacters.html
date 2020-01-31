@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if message %}
+{{ message }}
+{% endif %}
+
+{% if error %}
+<p class=error /><strong>{{ error }}</strong>
+{% endif %}
+
+<h2>Henkilön {{ current_user.username }} hahmot</h2>
+
+<table>
+</table>
+
+{% endblock %}

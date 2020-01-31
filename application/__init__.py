@@ -25,6 +25,7 @@ from application.user import UserModel
 from application.character import CharacterModel
 from application.user import NewUserView
 from application.user import EditUserInfoView
+from application.character import NewCharacterView
 
 from application.user.UserModel import User
 from os import urandom

@@ -17,7 +17,7 @@ class Character(db.Model):
     account_id = db.Column(db.Integer, db.ForeignKey('accounts.id'),
                            nullable=False)
 
-    def __init__(self, c_name, c_class, c_race, c_strength, c_dexterity, c_inteligence, c_faith, c_health, c_mana):
+    def __init__(self, c_name, c_class, c_race, c_strength, c_dexterity, c_inteligence, c_faith, c_health, c_mana, account_id):
         self.character_name = c_name
         self.character_class = c_class
         self.character_race = c_race
@@ -27,3 +27,4 @@ class Character(db.Model):
         self.character_faith = c_faith
         self.character_health = c_health
         self.character_mana = c_mana
+        self.account_id = account_id
