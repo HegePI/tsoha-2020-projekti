@@ -2,19 +2,19 @@ from application import app, db, bcrypt
 from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_bcrypt import Bcrypt
 from application.user.UserModel import User
-from application.user.form import UserForm
+from application.user.NewUserForm import NewUserForm
 from application.login.LoginForm import LoginForm
 
 
 @app.route("/newUser")
 def new_user_form():
-    return render_template("user/new.html", form = UserForm())
+    return render_template("user/new.html", form = NewUserForm())
 
 
 @app.route("/newUser", methods=["POST"])
 def create_new_user():
 
-    form = UserForm(request.form)
+    form = NewUserForm(request.form)
 
     if not form.validate():
         return render_template("user/new.html", form=form)
@@ -27,7 +27,7 @@ def create_new_user():
     if user != None:
 
         error = "Käyttäjänimi on jo käytössä."
-        return render_template("user/new.html", error=error, form=UserForm())
+        return render_template("user/new.html", error=error, form=NewUserForm())
 
     else:
 
