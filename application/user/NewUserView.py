@@ -1,12 +1,13 @@
 from application import app, db, bcrypt
 from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_bcrypt import Bcrypt
-from application.user.Models import User
+from application.user.UserModel import User
+from application.user.form import UserForm
 
 
 @app.route("/newUser")
 def new_user_form():
-    return render_template("user/new.html")
+    return render_template("user/new.html", form = UserForm())
 
 
 @app.route("/newUser", methods=["POST"])

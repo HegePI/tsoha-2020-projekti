@@ -1,7 +1,7 @@
 from application import app, db, bcrypt
 from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_bcrypt import Bcrypt
-from application.user.Models import User
+from application.user.UserModel import User
 
 
 @app.route("/login")

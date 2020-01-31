@@ -1,6 +1,6 @@
 from application import app, db, bcrypt
 from flask import Flask, flash, redirect, render_template, request, url_for
-from application.user.Models import User
+from application.user.UserModel import User
 
 @app.route("/editUserInfo/<user_id>/")
 def edit_userinfo_form(user_id):
