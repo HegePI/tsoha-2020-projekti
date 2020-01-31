@@ -3,6 +3,7 @@ from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_bcrypt import Bcrypt
 from application.user.UserModel import User
 from application.user.form import UserForm
+from application.login.LoginForm import LoginForm
 
 
 @app.route("/newUser")
@@ -25,7 +26,7 @@ def create_new_user():
 
     if user != None:
         error = "Käyttäjänimi on jo käytössä."
-        return render_template("user/new.html", error=error)
+        return render_template("user/new.html", error=error, form=UserForm())
     else:
         hashed_password = bcrypt.generate_password_hash(password, 10)
         utf8_hashed_password = hashed_password.decode("utf-8", "ignore")
@@ -33,4 +34,4 @@ def create_new_user():
         db.session().add(user)
         db.session().commit()
         message = "käyttäjä luotiin onnistuneesti!"
-        return render_template("login/login.html", message=message)
+        return render_template("login/login.html", message=message, form=LoginForm())
