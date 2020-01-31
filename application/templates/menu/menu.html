@@ -11,17 +11,16 @@
     {% endif %}
 
     <h1>Tervetuloa D&D -pöytäkirjasovellukseen!</h1>
-    <h3>logged in as {{user.username}}</h3>
 
     {% if current_user.is_authenticated %}
-    <p>
+    <h3>
         Kirjautunut nimellä {{ current_user.username }}
-    </p>
+    </h3>
     {% else %}
     <a href="{{ url_for('login') }}">Kirjaudu</a>
     {% endif %}
 
-    <a href="{{url_for('edit_userinfo_form', user_id=user.id)}}">Muuta käyttäjän tietoja</a>
+    <a href="{{url_for('edit_userinfo_form')}}">Muuta käyttäjän tietoja</a>
     <br>
     <a href="{{ url_for('logout') }}">Kirjaudu ulos</a>
 

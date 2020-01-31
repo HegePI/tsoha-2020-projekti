@@ -21,16 +21,23 @@ def login():
     user = User.query.filter_by(username=username).first()
 
     if user == None:
+
         error = "Kyseistä käyttäjää ei ole olemassa"
+
         return render_template("login/login.html", error=error, form=form)
+
     elif bcrypt.check_password_hash(user.password, password):
+
         login_user(user)
         return redirect(url_for("main_menu", user_id=user.id))
+
     else: 
+
         error = "Salasana väärin"
         return render_template("login/login.html", error=error, form=form)
 
 @app.route("/logout")
 def logout():
+    
     logout_user()
     return redirect(url_for("index"))

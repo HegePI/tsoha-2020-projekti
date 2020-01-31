@@ -25,13 +25,20 @@ def create_new_user():
     user = User.query.filter_by(username=username).first()
 
     if user != None:
+
         error = "Käyttäjänimi on jo käytössä."
         return render_template("user/new.html", error=error, form=UserForm())
+
     else:
+
         hashed_password = bcrypt.generate_password_hash(password, 10)
         utf8_hashed_password = hashed_password.decode("utf-8", "ignore")
+
         user = User(username, utf8_hashed_password)
+
         db.session().add(user)
         db.session().commit()
+
         message = "käyttäjä luotiin onnistuneesti!"
+        
         return render_template("login/login.html", message=message, form=LoginForm())
