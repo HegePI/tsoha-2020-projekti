@@ -15,6 +15,9 @@ def create_new_user():
 
     form = UserForm(request.form)
 
+    if not form.validate():
+        return render_template("user/new.html", form=form)
+
     username = form.username.data
     password = form.password.data
 
