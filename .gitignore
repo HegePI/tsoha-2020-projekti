@@ -1,5 +1,5 @@
 .vscode
-user.db
+*.db
 to-do
 # Byte-compiled / optimized / DLL files
 __pycache__/
