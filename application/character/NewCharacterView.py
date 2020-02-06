@@ -1,15 +1,17 @@
 from application import app, db, bcrypt
 from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_bcrypt import Bcrypt
-from flask_login import current_user
+from flask_login import current_user, login_required
 from application.character.CharacterModel import Character
 from application.character.NewCharacterForm import NewCharacterForm
 
 @app.route("/newCharacter")
+@login_required
 def new_character_form():
     return render_template("/character/newCharacter.html", form = NewCharacterForm())
 
 @app.route("/newCharacter", methods=["POST"])
+@login_required
 def create_new_character():
     
     form = NewCharacterForm(request.form)

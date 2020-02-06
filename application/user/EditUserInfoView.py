@@ -1,14 +1,16 @@
 from application import app, db, bcrypt
 from flask import Flask, flash, redirect, render_template, request, url_for
-from flask_login import current_user
+from flask_login import current_user, login_required
 from application.user.UserModel import User
 from application.user.EditUserForm import EditUserForm
 
 @app.route("/editUserInfo")
+@login_required
 def edit_userinfo_form():
     return render_template("user/editUserInfo.html", form = EditUserForm())
 
 @app.route("/editUserInfo", methods=["POST"])
+@login_required
 def edit_userinfo():
 
     form = EditUserForm(request.form)

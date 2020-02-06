@@ -1,16 +1,18 @@
 from application import app, db
 from flask import Flask, flash, redirect, render_template, request, url_for
-from flask_login import current_user
+from flask_login import current_user, login_required
 from application.adventure.AdventureModel import Adventure
 from application.adventure.NewAdventureForm import NewAdventureForm
 
 
 @app.route("/newAdventure")
+@login_required
 def new_adventure_form():
     return render_template("adventure/newAdventure.html", form = NewAdventureForm())
 
 
 @app.route("/newAdventure", methods=["POST"])
+@login_required
 def create_new_adventure():
 
     form = NewAdventureForm(request.form)
@@ -25,11 +27,11 @@ def create_new_adventure():
     if adventure != None:
 
         error = "Seikkailu kyseisellä nimellä on jo olemassa."
-        return render_template("adventure/newAdventure.html", form=form)
+        return render_template("adventure/newAdventure.html", error=error, form=form)
 
     else:
 
-        new_adventure = Adventure(adventure_name, current_user.id)
+        new_adventure = Adventure(adventure_name, True, current_user.id)
 
         db.session().add(new_adventure)
         db.session().commit()
