@@ -7,23 +7,25 @@
 {% endif %}
 
 {% if error %}
-<p class=error><strong>{{ error }}</strong>
-    {% endif %}
+<p class=error /><strong>{{ error }}</strong>
+{% endif %}
 
-    <h1>Tervetuloa D&D -pöytäkirjasovellukseen!</h1>
+<h1>Tervetuloa D&D -pöytäkirjasovellukseen!</h1>
 
-    {% if current_user.is_authenticated %}
-    <h3>
-        Kirjautunut nimellä {{ current_user.username }}
-    </h3>
-    {% else %}
-    <a href="{{ url_for('login') }}">Kirjaudu</a>
-    {% endif %}
-    <br>
-    <a href="{{url_for('edit_userinfo_form')}}">Muuta käyttäjän tietoja</a>
-    <br>
-    <a href="{{ url_for('new_character_form') }}">Luo uusi pelihahmo</a>
-    <br>
-    <a href="{{ url_for('logout') }}">Kirjaudu ulos</a>
+{% if current_user.is_authenticated %}
+<h3>
+    Kirjautunut nimellä {{ current_user.username }}
+</h3>
+{% else %}
+<a href="{{ url_for('login') }}">Kirjaudu</a>
+{% endif %}
+<br>
+<a href="{{url_for('edit_userinfo_form')}}">Muuta käyttäjän tietoja</a>
+<br>
+<a href="{{ url_for('new_character_form') }}">Luo uusi pelihahmo</a>
+<br>
+<a href="{{ url_for('new_adventure_form') }}">Aloita uusi seikkailu</a>
+<br>
+<a href="{{ url_for('logout') }}">Kirjaudu ulos</a>
 
-    {% endblock %}
+{% endblock %}

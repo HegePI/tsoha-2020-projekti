@@ -3,50 +3,50 @@
 {% block body %}
 
 {% if error %}
-<p class=error><strong>{{ error }}</strong>
-    {% endif %}
+<p class=error /><strong>{{ error }}</strong>
+{% endif %}
 
-    <h3>Luo uusi käyttäjä sovellukseen</h3>
-    <br />
-    <form method="POST" action="{{ url_for('create_new_user') }}">
-        <table>
-            <tr>
-                <td>
-                    {{form.username.label}}
-                </td>
-                <td>
-                    {{form.username}}
-                </td>
-                <td>
-                    <ul>
-                        {% for error in form.username.errors %}
-                        <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    {{form.password.label}}
-                </td>
-                <td>
-                    {{form.password}}
-                </td>
-                <td>
-                    <ul>
-                        {% for error in form.password.errors %}
-                        <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="5">
-                    <input type="submit" value="Luo uusi käyttäjä" />
-                </td>
-            </tr>
-        </table>
-    </form>
-    <br>
-    <a href="{{url_for('login')}}">Takaisin login -näkymään</a>
-    {% endblock %}
+<h3>Luo uusi käyttäjä sovellukseen</h3>
+<br />
+<form method="POST" action="{{ url_for('create_new_user') }}">
+    <table>
+        <tr>
+            <td>
+                {{form.username.label}}
+            </td>
+            <td>
+                {{form.username}}
+            </td>
+            <td>
+                <ul>
+                    {% for error in form.username.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{form.password.label}}
+            </td>
+            <td>
+                {{form.password}}
+            </td>
+            <td>
+                <ul>
+                    {% for error in form.password.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <input type="submit" value="Luo uusi käyttäjä" />
+            </td>
+        </tr>
+    </table>
+</form>
+<br>
+<a href="{{url_for('login')}}">Takaisin login -näkymään</a>
+{% endblock %}

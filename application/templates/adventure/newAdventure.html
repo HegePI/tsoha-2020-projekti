@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if error %}
+<p class=error />
+<strong>{{ error }}</strong>
+{% endif %}
+
+<h3>Luo uusi seikkailu</h3>
+<br />
+<form method="POST" action="{{ url_for('create_new_adventure') }}">
+    <table>
+        <tr>
+            <td>
+                {{form.adventure_name.label}}
+            </td>
+            <td>
+                {{form.adventure_name}}
+            </td>
+            <td>
+                <ul>
+                    {% for error in form.adventure_name.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <input type="submit" value="Luo uusi seikkailu" />
+            </td>
+        </tr>
+    </table>
+</form>
+<br>
+<a href="{{url_for('main_menu')}}">Takaisin login -näkymään</a>
+{% endblock %}
