@@ -21,13 +21,16 @@ from application import views
 
 from application.login import LoginView
 from application.menu import MenuView
-from application.user import UserModel
-from application.character import CharacterModel
 from application.user import NewUserView
 from application.user import EditUserInfoView
 from application.character import NewCharacterView
 
+from application.user import UserModel
+from application.character import CharacterModel
+from application.adventure import AdventureModel
+
 from application.user.UserModel import User
+
 from os import urandom
 app.config["SECRET_KEY"] = urandom(32)
 
