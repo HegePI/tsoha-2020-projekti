@@ -1,6 +1,6 @@
 from application import app, db, bcrypt
 from flask import Flask, flash, redirect, render_template, request, url_for
-from flask_login import current_user, login_required
+from flask_login import current_user, logout_user, login_required
 from application.user.UserModel import User
 from application.user.EditUserForm import EditUserForm
 
@@ -30,3 +30,15 @@ def edit_userinfo():
     db.session().commit()
 
     return redirect(url_for("main_menu"))
+
+@app.route("/editUserInfo/delete", methods=["POST"])
+@login_required
+def delete_user_account():
+
+    deleted_user = User.query.filter_by(id=current_user.id).first()
+
+    db.session.delete(deleted_user)
+    db.session.commit()
+    
+    logout_user()
+    return redirect(url_for("index"))
