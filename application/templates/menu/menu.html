@@ -16,16 +16,46 @@
 <h3>
     Kirjautunut nimellä {{ current_user.username }}
 </h3>
+
 {% else %}
 <a href="{{ url_for('login') }}">Kirjaudu</a>
 {% endif %}
 <br>
 <a href="{{url_for('edit_userinfo_form')}}">Muuta käyttäjän tietoja</a>
 <br>
-<a href="{{ url_for('new_character_form') }}">Luo uusi pelihahmo</a>
-<br>
 <a href="{{ url_for('new_adventure_form') }}">Aloita uusi seikkailu</a>
 <br>
 <a href="{{ url_for('logout') }}">Kirjaudu ulos</a>
+<br>
+<a href="{{ url_for('list_characters') }}">Listaa käyttäjän hahmot</a>
+
+<h2>Kaikki Seikkailut</h2>
+<table class="table table-striped">
+    {% for adventure in all_adventures %}
+    <tr>
+        <td>{{adventure.name}}</td>
+        <td>{{adventure.created}}</td>
+        <td>
+            <a href="{{ url_for('join_adventure_form', adventure_id=adventure.id) }}">Liity seikkailuun</a>
+        </td>
+    </tr>
+    {%endfor%}
+</table>
+
+{% if current_user.is_authenticated %}
+<h3>
+    Käyttäjän {{ current_user.username }} seikkailut
+</h3>
+<table class="table table-striped">
+    {% for adventure in users_adventures %}
+    <tr>
+        <td>{{adventure.name}}</td>
+        <td>{{adventure.created}}</td>
+    </tr>
+    {%endfor%}
+</table>
+{% else %}
+<a href="{{ url_for('login') }}">Kirjaudu</a>
+{% endif %}
 
 {% endblock %}

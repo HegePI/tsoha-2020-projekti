@@ -1,4 +1,5 @@
 from application import db
+from sqlalchemy.sql import text
 
 class Adventure(db.Model):
 
@@ -15,3 +16,39 @@ class Adventure(db.Model):
         self.adventure_name = name
         self.ongoing = ongoing
         self.dungeon_master = dm
+
+    @staticmethod
+    def find_users_ongoing_adventures(id):
+        stmt = text("SELECT * FROM adventure WHERE (dungeon_master = %d and ongoing = 1);" % id)
+
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"name":row[1], "created":row[2]})
+
+        return response
+
+    @staticmethod
+    def find_all_adventures(id):
+        stmt = text("SELECT * FROM adventure EXCEPT SELECT * FROM adventure WHERE (dungeon_master = %d);" % id)
+
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({ "id":row[0], "name":row[1], "created":row[2] })
+        
+        return response
+
+    @staticmethod
+    def find_adventure_by_id(id):
+        stmt = text("SELECT * FROM adventure WHERE id = %d;" % id)
+
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({ "id":row[0], "name":row[1], "created":row[2] })
+        
+        return response

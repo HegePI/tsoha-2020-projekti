@@ -10,7 +10,7 @@
 <h3>Luo uusi seikkailu</h3>
 <br />
 <form method="POST" action="{{ url_for('create_new_adventure') }}">
-    <table>
+    <table class="table table-striped">
         <tr>
             <td>
                 {{form.adventure_name.label}}

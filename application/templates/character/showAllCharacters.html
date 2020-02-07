@@ -12,7 +12,71 @@
 
 <h2>Henkilön {{ current_user.username }} hahmot</h2>
 
-<table>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Nimi
+            </th>
+            <th>
+                Luokka
+            </th>
+            <th>
+                Rotu
+            </th>
+            <th>
+                Voima
+            </th>
+            <th>
+                Hienomotoriikka
+            </th>
+            <th>
+                Äly
+            </th>
+            <th>
+                Usko
+            </th>
+            <th>
+                Elinvoima
+            </th>
+            <th>
+                Mana
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for character in characters %}
+        <tr>
+            <td>
+                {{character.name}}
+            </td>
+            <td>
+                {{character.class}}
+            </td>
+            <td>
+                {{character.race}}
+            </td>
+            <td>
+                {{character.str}}
+            </td>
+            <td>
+                {{character.dex}}
+            </td>
+            <td>
+                {{character.int}}
+            </td>
+            <td>
+                {{character.faith}}
+            </td>
+            <td>
+                {{character.HP}}
+            </td>
+            <td>
+                {{character.MP}}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
 
 {% endblock %}

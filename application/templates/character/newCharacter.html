@@ -11,10 +11,10 @@
 <strong>{{ error }}</strong>
 {% endif %}
 
-<h2>Luo uusi hahmo seikkailuun</h2>
+<h2>Luo uusi hahmo seikkailuun "{{ adventure.adventure_name }}"</h2>
 
-<form method="POST" action="{{ url_for('create_new_character') }}">
-    <table>
+<form method="POST" action="{{ url_for('create_new_character', adventure_id=adventure.id) }}">
+    <table class="table table-striped">
         <tr>
             <td>
                 {{ form.character_name.label }}

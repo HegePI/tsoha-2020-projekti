@@ -2,17 +2,20 @@ from application import app, db, bcrypt
 from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_bcrypt import Bcrypt
 from flask_login import current_user, login_required
-from application.character.CharacterModel import Character
 from application.character.NewCharacterForm import NewCharacterForm
+from application.character.CharacterModel import Character
+from application.adventure.AdventureModel import Adventure
 
-@app.route("/newCharacter")
+@app.route("/newCharacter/<adventure_id>/")
 @login_required
-def new_character_form():
-    return render_template("/character/newCharacter.html", form = NewCharacterForm())
+def join_adventure_form(adventure_id):
 
-@app.route("/newCharacter", methods=["POST"])
+    adventure = Adventure.query.filter_by(id=adventure_id).first()
+    return render_template("/character/newCharacter.html", form = NewCharacterForm(), adventure=adventure)
+
+@app.route("/newCharacter/<adventure_id>/", methods=["POST"])
 @login_required
-def create_new_character():
+def create_new_character(adventure_id):
     
     form = NewCharacterForm(request.form)
 
@@ -27,7 +30,7 @@ def create_new_character():
     c_mana = form.character_mana.data
 
     character = Character(c_name, c_class, c_race, c_strength, c_dexterity, 
-    c_inteligence, c_faith, c_health, c_mana, current_user.id)
+    c_inteligence, c_faith, c_health, c_mana, current_user.id, adventure_id)
 
     db.session().add(character)
     db.session().commit()

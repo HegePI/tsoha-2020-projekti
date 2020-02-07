@@ -1,4 +1,5 @@
 from application import db
+from sqlalchemy.sql import text
 
 class Character(db.Model):
 
@@ -29,3 +30,19 @@ class Character(db.Model):
         self.character_mana = c_mana
         self.account_id = account_id
         self.adventure_id = adventure_id
+
+    @staticmethod
+    def find_users_characters(user_id):
+        stmt = text("SELECT * FROM character WHERE (account_id = %d);" % user_id)
+
+        res = db.engine.execute(stmt)
+
+        response = []
+
+        for row in res:
+            response.append({"name":row[1], "class":row[2], "race":row[3], 
+            "str":row[4], "dex":row[5], "int":row[6], "faith":row[7], "HP":row[8], "MP":row[9] })
+
+        return response
+
+

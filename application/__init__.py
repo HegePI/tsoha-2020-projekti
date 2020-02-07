@@ -25,6 +25,7 @@ from application.user import NewUserView
 from application.user import EditUserInfoView
 from application.character import NewCharacterView
 from application.adventure import NewAdventureView
+from application.character import AllCharacterView
 
 from application.user import UserModel
 from application.character import CharacterModel

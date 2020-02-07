@@ -9,7 +9,7 @@
 <h3>Muokataan käyttäjän {{ current_user.username }} tietoja.</h3>
 <br />
 <form method="POST" action="{{ url_for('edit_userinfo') }}">
-    <table>
+    <table class="table table-striped">
         <tr>
             <td>
                 {{form.username.label}}
