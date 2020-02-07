@@ -31,7 +31,7 @@ def create_new_adventure():
 
     else:
 
-        new_adventure = Adventure(adventure_name, True, current_user.id)
+        new_adventure = Adventure(adventure_name, 1, current_user.id)
 
         db.session().add(new_adventure)
         db.session().commit()
