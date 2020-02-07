@@ -1,4 +1,5 @@
 from application import db
+from sqlalchemy.orm import relationship
 
 class User(db.Model):
 
@@ -7,6 +8,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(120), nullable=False)
     password = db.Column(db.String(120), nullable=False)
+    character = relationship("Character", cascade="all,delete", backref="User")
 
     def __init__(self, username, password):
         self.username = username
