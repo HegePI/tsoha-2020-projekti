@@ -36,5 +36,5 @@ def create_new_character(adventure_id):
     db.session().commit()
 
     message = "Hahmo luotiin onnistuneesti"
-    return render_template("menu/menu.html", message = message)
+    return render_template("menu.html", message = message)
 

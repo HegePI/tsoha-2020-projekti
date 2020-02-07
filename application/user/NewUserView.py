@@ -41,4 +41,4 @@ def create_new_user():
 
         message = "käyttäjä luotiin onnistuneesti!"
         
-        return render_template("login/login.html", message=message, form=LoginForm())
+        return render_template("login.html", message=message, form=LoginForm())

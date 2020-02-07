@@ -8,7 +8,7 @@ from application.login.LoginForm import LoginForm
 
 @app.route("/login")
 def login_form():
-    return render_template("login/login.html", form=LoginForm())
+    return render_template("login.html", form=LoginForm())
 
 
 @app.route("/login", methods=["POST"])
@@ -24,7 +24,7 @@ def login():
 
         error = "Kyseistä käyttäjää ei ole olemassa"
 
-        return render_template("login/login.html", error=error, form=form)
+        return render_template("login.html", error=error, form=form)
 
     elif bcrypt.check_password_hash(user.password, password):
 
@@ -34,7 +34,7 @@ def login():
     else: 
 
         error = "Salasana väärin"
-        return render_template("login/login.html", error=error, form=form)
+        return render_template("login.html", error=error, form=form)
 
 @app.route("/logout")
 def logout():
