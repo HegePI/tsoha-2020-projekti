@@ -9,5 +9,5 @@ from application.adventure.AdventureModel import Adventure
 @app.route("/usersCharacters/")
 @login_required
 def list_characters():
-    return render_template("/character/showAllCharacters.html",
+    return render_template("/character/showUsersCharacters.html",
      characters=Character.find_users_characters(current_user.id))
