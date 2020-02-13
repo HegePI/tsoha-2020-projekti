@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if message %}
+{{ message }}
+{% endif %}
+
+{% if error %}
+<p class=error /><strong>{{ error }}</strong>
+{% endif %}
+
+<h2>Kaikki pelihahmot</h2>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Hahmon nimi
+            </th>
+            <th>
+                Hahmon luokka
+            </th>
+            <th>
+                Hahmon rotu
+            </th>
+            <th>
+                Hahmon omistaja
+            </th>
+            <th>
+                Seikkailu
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for data in characters %}
+        <tr>
+            <td>
+                {{data.char_name}}
+            </td>
+            <td>
+                {{data.char_class}}
+            </td>
+            <td>
+                {{data.char_race}}
+            </td>
+            <td>
+                {{data.username}}
+            </td>
+            <td>
+                {{data.adventure_name}}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

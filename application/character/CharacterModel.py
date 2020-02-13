@@ -44,5 +44,22 @@ class Character(db.Model):
             "str":row[4], "dex":row[5], "int":row[6], "faith":row[7], "HP":row[8], "MP":row[9] })
 
         return response
+    
+    @staticmethod
+    def find_all_characters():
+        stmt = text("SELECT character.character_name, character.character_race, "
+        "character.character_class, accounts.username, adventure.adventure_name "
+        "FROM character INNER JOIN accounts ON character.account_id=accounts.id "
+        "INNER JOIN adventure ON character.adventure_id=adventure.id;")
+
+        res = db.engine.execute(stmt)
+
+        response = []
+
+        for row in res:
+            response.append({"char_name":row[0], "char_race":row[1],
+            "char_class":row[2], "username":row[3], "adventure_name":row[4]})
+
+        return response
 
 

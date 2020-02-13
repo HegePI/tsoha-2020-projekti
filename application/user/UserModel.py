@@ -29,4 +29,4 @@ class User(db.Model):
         return True
     
     def get_role(self):
-        return role
+        return self.role

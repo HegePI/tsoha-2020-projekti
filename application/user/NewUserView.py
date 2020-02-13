@@ -7,9 +7,9 @@ from application.login.LoginForm import LoginForm
 
 def __resolve_admin(admin):
         if admin:
-            return "Admin"
+            return "ADMIN"
         else:
-            return "User"   
+            return "USER"   
 
 
 @app.route("/newUser")
