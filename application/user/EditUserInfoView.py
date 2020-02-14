@@ -29,7 +29,7 @@ def edit_userinfo():
     
     db.session().commit()
 
-    return redirect(url_for("main_menu"))
+    return render_template("user/editUserInfo.html", form = EditUserForm(), message="Käyttäjän tiedot muokattiin onnistuneesti!")
 
 @app.route("/editUserInfo/delete", methods=["POST"])
 @login_required

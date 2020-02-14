@@ -2,6 +2,10 @@
 
 {% block body %}
 
+{% if message %}
+{{ message }}
+{% endif %}
+
 {% if error %}
 <p class=error /><strong>{{ error }}</strong>
 {% endif %}
@@ -51,7 +55,6 @@
         </tr>
     </table>
 </form>
-<a href="{{url_for('main_menu')}}">takaisin menu -näkymään</a>
 
 <form method="POST" action="{{ url_for('delete_user_account') }}">
     <input type="submit" value="poista käyttäjä">

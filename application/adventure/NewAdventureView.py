@@ -38,4 +38,4 @@ def create_new_adventure():
 
         message = "Uusi seikkailu luotiin onnistuneesti!"
         
-        return render_template("menu.html", message=message)
+        return render_template("adventure/newAdventure.html", form = NewAdventureForm(), message=message)

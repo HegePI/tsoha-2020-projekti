@@ -2,6 +2,10 @@
 
 {% block body %}
 
+{% if message %}
+{{message}}
+{% endif %}
+
 {% if error %}
 <p class=error />
 <strong>{{ error }}</strong>
@@ -34,5 +38,4 @@
     </table>
 </form>
 <br>
-<a href="{{url_for('main_menu')}}">Takaisin menu -näkymään</a>
 {% endblock %}
