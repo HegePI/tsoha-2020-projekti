@@ -19,7 +19,7 @@ class Adventure(db.Model):
     
     @staticmethod
     def list_adventures():
-        stmt = text("SELECT adventure.adventure_name, adventure.created, "
+        stmt = text("SELECT adventure.id, adventure.adventure_name, adventure.created, "
         "adventure.ongoing, accounts.username FROM adventure INNER JOIN "
         "accounts ON adventure.dungeon_master=accounts.id;")
 
@@ -28,7 +28,7 @@ class Adventure(db.Model):
         response = []
 
         for row in res:
-            response.append({"adventure_name": row[0], "created": row[1],
-            "ongoing": row[2], "dungeon_master": row[3]})
+            response.append({"id":row[0], "adventure_name": row[1], "created": row[2],
+            "ongoing": row[3], "dungeon_master": row[4]})
 
         return response

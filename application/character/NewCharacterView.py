@@ -6,17 +6,18 @@ from application.character.NewCharacterForm import NewCharacterForm
 from application.character.CharacterModel import Character
 from application.adventure.AdventureModel import Adventure
 
-@app.route("/newCharacter/<adventure_id>/")
+@app.route("/newCharacter/<int:adventure_id>/")
 @login_required
 def join_adventure_form(adventure_id):
 
     adventure = Adventure.query.filter_by(id=adventure_id).first()
     return render_template("/character/newCharacter.html", form = NewCharacterForm(), adventure=adventure)
 
-@app.route("/newCharacter/<adventure_id>/", methods=["POST"])
+@app.route("/newCharacter/<int:adventure_id>/", methods=["POST"])
 @login_required
 def create_new_character(adventure_id):
     
+    adventure = Adventure.query.filter_by(id=adventure_id).first()
     form = NewCharacterForm(request.form)
 
     c_name = form.character_name.data
@@ -36,5 +37,5 @@ def create_new_character(adventure_id):
     db.session().commit()
 
     message = "Hahmo luotiin onnistuneesti"
-    return render_template("menu.html", message = message)
+    return render_template("/character/newCharacter.html", form = NewCharacterForm(), adventure=adventure, message = message)
 
