@@ -16,39 +16,3 @@ class Adventure(db.Model):
         self.adventure_name = name
         self.ongoing = ongoing
         self.dungeon_master = dm
-
-    @staticmethod
-    def find_users_adventures(id):
-        stmt = text("SELECT * FROM adventure WHERE (dungeon_master = %d);" % id)
-
-        res = db.engine.execute(stmt)
-
-        response = []
-        for row in res:
-            response.append({"name":row[1], "created":row[2]})
-
-        return response
-
-    @staticmethod
-    def find_all_adventures():
-        stmt = text("SELECT * FROM adventure;")
-
-        res = db.engine.execute(stmt)
-
-        response = []
-        for row in res:
-            response.append({ "id":row[0], "name":row[1], "created":row[2] })
-        
-        return response
-
-    @staticmethod
-    def find_adventure_by_id(id):
-        stmt = text("SELECT * FROM adventure WHERE id = %d;" % id)
-
-        res = db.engine.execute(stmt)
-
-        response = []
-        for row in res:
-            response.append({ "id":row[0], "name":row[1], "created":row[2] })
-        
-        return response

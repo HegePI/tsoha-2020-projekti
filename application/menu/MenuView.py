@@ -9,4 +9,4 @@ from flask_login import login_required
 @app.route("/menu")
 @login_required
 def main_menu():
-    return render_template("menu.html", all_adventures=Adventure.find_all_adventures())
+    return render_template("menu.html", all_adventures=Adventure.query.all())

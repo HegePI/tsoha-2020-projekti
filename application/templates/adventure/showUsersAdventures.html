@@ -9,12 +9,19 @@
 {% if error %}
 <p class=error /><strong>{{ error }}</strong>
 {% endif %}
+<h2>Käyttäjän {{ current_user.username }} käynnissä olevat seikkailut</h2>
 
-<h2>Käyttäjän {{ current_user.username }} seikkailut</h2>
-
-{% for adventure in adventures %}
+{% for adventure in ongoing_adventures %}
 <div class="row">
-    <div class="col-sm-4">{{adventure.name}}</div>
+    <div class="col-sm-4">{{adventure.adventure_name}}</div>
+    <div class="col-sm-4">{{adventure.created}}</div>
+</div>
+{% endfor %}
+
+<h2>Käyttäjän {{ current_user.username }} päättyneet seikkailut</h2>
+{% for adventure in finished_adventures %}
+<div class="row">
+    <div class="col-sm-4">{{adventure.adventure_name}}</div>
     <div class="col-sm-4">{{adventure.created}}</div>
 </div>
 {% endfor %}

@@ -10,17 +10,32 @@
 <p class=error /><strong>{{ error }}</strong>
 {% endif %}
 
-<center><h1>Tervetuloa D&D -pöytäkirjasovellukseen!</h1></center>
-
 <h3>Kaikki käyttäjien Seikkailut</h3>
 <table class="table table-striped">
+    <thead class="thead-dark">
+        <th>
+            Seikkailun nimi
+        </th>
+        <th>
+            Seikkailu luotu
+        </th>
+        <th>
+            Seikkailun tila
+        </th>
+    </thead>
     {% for adventure in all_adventures %}
     <tr>
-        <td>{{adventure.name}}</td>
+        <td>{{adventure.adventure_name}}</td>
         <td>{{adventure.created}}</td>
+        {% if adventure.ongoing == 1 %}
         <td>
             <a href="{{ url_for('join_adventure_form', adventure_id=adventure.id) }}">Liity seikkailuun</a>
         </td>
+        {% else %}
+        <td>
+            Seikkailu päättynyt
+        </td>
+        {% endif %}
     </tr>
     {%endfor%}
 </table>
