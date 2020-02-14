@@ -24,7 +24,7 @@ from flask_login import LoginManager, current_user
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-login_manager.login_view = "login_form"
+login_manager.login_view = "main_menu"
 login_manager.login_message = "Please login to use this functionality."
 
 from functools import wraps
@@ -55,6 +55,7 @@ from application.user import EditUserInfoView
 from application.character import NewCharacterView
 from application.adventure import NewAdventureView
 from application.character import AllCharacterView
+from application.adventure import AdventureListView
 
 from application.user import UserModel
 from application.character import CharacterModel

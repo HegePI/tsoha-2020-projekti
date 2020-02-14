@@ -24,6 +24,8 @@
                             tietoja</a>
                         <a class="dropdown-item" href="{{ url_for('list_users_characters') }}">Listaa käyttäjän
                             hahmot</a>
+                        <a class="dropdown-item" href="{{ url_for('list_users_adventures', id=current_user.id) }}">Listaa käyttäjän
+                            seikkailut</a>
                     </ul>
                 </li>
             </ul>
@@ -46,8 +48,8 @@
                         Hahmo
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="characterDropdown">
-                        <a class="dropdown-item" href="{{ url_for('list_users_characters') }}">Näytä käyttäjän
-                            hahmot</a>
+                        <!-- <a class="dropdown-item" href="{{ url_for('list_users_characters') }}">Näytä käyttäjän
+                            hahmot</a> -->
                         <a class="dropdown-item" href="{{ url_for('list_all_characters') }}"">Listaa kaikki hahmot</a>
                     </ul>
                 </li>

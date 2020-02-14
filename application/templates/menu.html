@@ -10,18 +10,9 @@
 <p class=error /><strong>{{ error }}</strong>
 {% endif %}
 
-<h1>Tervetuloa D&D -pöytäkirjasovellukseen!</h1>
+<center><h1>Tervetuloa D&D -pöytäkirjasovellukseen!</h1></center>
 
-{% if current_user.is_authenticated %}
-<h3>
-    Kirjautunut nimellä {{ current_user.username }}
-</h3>
-
-{% else %}
-<a href="{{ url_for('login') }}">Kirjaudu</a>
-{% endif %}
-
-<h2>Kaikki Seikkailut</h2>
+<h3>Kaikki käyttäjien Seikkailut</h3>
 <table class="table table-striped">
     {% for adventure in all_adventures %}
     <tr>
@@ -33,21 +24,4 @@
     </tr>
     {%endfor%}
 </table>
-
-{% if current_user.is_authenticated %}
-<h3>
-    Käyttäjän {{ current_user.username }} seikkailut
-</h3>
-<table class="table table-striped">
-    {% for adventure in users_adventures %}
-    <tr>
-        <td>{{adventure.name}}</td>
-        <td>{{adventure.created}}</td>
-    </tr>
-    {%endfor%}
-</table>
-{% else %}
-<a href="{{ url_for('login') }}">Kirjaudu</a>
-{% endif %}
-
 {% endblock %}

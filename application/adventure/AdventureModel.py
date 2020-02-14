@@ -18,8 +18,8 @@ class Adventure(db.Model):
         self.dungeon_master = dm
 
     @staticmethod
-    def find_users_ongoing_adventures(id):
-        stmt = text("SELECT * FROM adventure WHERE (dungeon_master = %d and ongoing = 1);" % id)
+    def find_users_adventures(id):
+        stmt = text("SELECT * FROM adventure WHERE (dungeon_master = %d);" % id)
 
         res = db.engine.execute(stmt)
 
@@ -30,8 +30,8 @@ class Adventure(db.Model):
         return response
 
     @staticmethod
-    def find_all_adventures(id):
-        stmt = text("SELECT * FROM adventure EXCEPT SELECT * FROM adventure WHERE (dungeon_master = %d);" % id)
+    def find_all_adventures():
+        stmt = text("SELECT * FROM adventure;")
 
         res = db.engine.execute(stmt)
 
