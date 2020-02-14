@@ -16,3 +16,19 @@ class Adventure(db.Model):
         self.adventure_name = name
         self.ongoing = ongoing
         self.dungeon_master = dm
+    
+    @staticmethod
+    def list_adventures():
+        stmt = text("SELECT adventure.adventure_name, adventure.created, "
+        "adventure.ongoing, accounts.username FROM adventure INNER JOIN "
+        "accounts ON adventure.dungeon_master=accounts.id;")
+
+        res = db.engine.execute(stmt)
+
+        response = []
+
+        for row in res:
+            response.append({"adventure_name": row[0], "created": row[1],
+            "ongoing": row[2], "dungeon_master": row[3]})
+
+        return response

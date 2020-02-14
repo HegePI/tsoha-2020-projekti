@@ -20,6 +20,9 @@
             Seikkailu luotu
         </th>
         <th>
+            Dungeon Master
+        </th>
+        <th>
             Seikkailun tila
         </th>
     </thead>
@@ -27,9 +30,10 @@
     <tr>
         <td>{{adventure.adventure_name}}</td>
         <td>{{adventure.created}}</td>
+        <td>{{adventure.dungeon_master}}</td>
         {% if adventure.ongoing == 1 %}
         <td>
-            <a href="{{ url_for('join_adventure_form', adventure_id=adventure.id) }}">Liity seikkailuun</a>
+            <a href="{{ url_for('join_adventure_form', adventure_id=adventure.id) }}">Käynnissä -- Liity seikkailuun</a>
         </td>
         {% else %}
         <td>
