@@ -1,5 +1,7 @@
 # User storyt
 
+Toteutetut User storyt on ruksittu.
+
 - [x] käyttäjänä voin luoda uuden käyttäjätilin sovellukseen
 
 - [x] käyttäjänä voin kirjautua sovellukseen ja sieltä pois
