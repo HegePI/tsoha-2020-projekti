@@ -29,7 +29,7 @@ def login():
     elif bcrypt.check_password_hash(user.password, password):
 
         login_user(user)
-        return redirect(url_for("main_menu", user_id=user.id))
+        return redirect(url_for("main_menu"))
 
     else: 
 

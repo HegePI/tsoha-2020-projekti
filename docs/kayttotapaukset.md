@@ -12,7 +12,7 @@ Toteutetut User storyt on ruksittu.
 
 - [x] Käyttäjänä voin aloittaa uuden seikkailun
 
-- [ ] Käyttäjänä voin liittyä seikkailuun, kunhan en ole seikkailun dungeon master.
+- [x] Käyttäjänä voin liittyä seikkailuun, kunhan en ole seikkailun dungeon master.
 
 - [ ] Käyttäjänä voin luoda uuden hahmon sovellukseen
 

@@ -11,6 +11,11 @@ from application.adventure.AdventureModel import Adventure
 def join_adventure_form(adventure_id):
 
     adventure = Adventure.query.filter_by(id=adventure_id).first()
+
+    if adventure.dungeon_master == current_user.id:
+        return render_template("menu.html", all_adventures=Adventure.list_adventures(), error="Olet seikkailun Dungeon Master")
+
+    adventure = Adventure.query.filter_by(id=adventure_id).first()
     return render_template("/character/newCharacter.html", form = NewCharacterForm(), adventure=adventure)
 
 @app.route("/newCharacter/<int:adventure_id>/", methods=["POST"])
