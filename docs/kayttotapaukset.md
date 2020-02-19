@@ -1,20 +1,22 @@
 # User storyt
 
-- [ ] käyttäjänä voin luoda uuden käyttäjätilin sovellukseen
+- [x] käyttäjänä voin luoda uuden käyttäjätilin sovellukseen
 
-- [ ] käyttäjänä voin kirjautua sovellukseen ja sieltä pois
+- [x] käyttäjänä voin kirjautua sovellukseen ja sieltä pois
 
-- [ ] Käyttäjänä voin muokata käyttäjätiliäni sovelluksessa
+- [x] Käyttäjänä voin muokata käyttäjätiliäni sovelluksessa
 
-- [ ] Käyttäjänä voin poistaa käyttäjätilini sovelluksesta
+- [x] Käyttäjänä voin poistaa käyttäjätilini sovelluksesta
 
-- [ ] Käyttäjänä voin aloittaa uuden seikkailun
+- [x] Käyttäjänä voin aloittaa uuden seikkailun
 
 - [ ] Käyttäjänä voin liittyä seikkailuun, kunhan en ole seikkailun dungeon master.
 
 - [ ] Käyttäjänä voin luoda uuden hahmon sovellukseen
 
 - [ ] käyttäjänä voin poistaa luomani hahmon seikkailusta
+
+- [ ] käyttäjänä voin poistaa luomani hahmon sovelluksesta
 
 - [ ] Käyttäjänä voin liittää hahmoni seikkailuun
 
