@@ -16,9 +16,9 @@ Toteutetut User storyt on ruksittu.
 
 - [ ] Käyttäjänä voin luoda uuden hahmon sovellukseen
 
-- [x] käyttäjänä voin poistaa luomani hahmon seikkailusta
+- [ ] käyttäjänä voin poistaa luomani hahmon seikkailusta
 
-- [ ] käyttäjänä voin poistaa luomani hahmon sovelluksesta
+- [x] käyttäjänä voin poistaa luomani hahmon sovelluksesta
 
 - [ ] Käyttäjänä voin liittää hahmoni seikkailuun
 
