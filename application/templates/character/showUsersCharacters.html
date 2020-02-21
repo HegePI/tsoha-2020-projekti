@@ -42,37 +42,51 @@
             <th>
                 Mana
             </th>
+            <th>
+                Seikkailu
+            </th>
+            <th>
+                #Poista
+            </th>
         </tr>
     </thead>
     <tbody>
         {% for character in characters %}
         <tr>
             <td>
-                {{character.name}}
+                {{character.character_name}}
             </td>
             <td>
-                {{character.class}}
+                {{character.character_class}}
             </td>
             <td>
-                {{character.race}}
+                {{character.character_race}}
             </td>
             <td>
-                {{character.str}}
+                {{character.character_strength}}
             </td>
             <td>
-                {{character.dex}}
+                {{character.character_dexterity}}
             </td>
             <td>
-                {{character.int}}
+                {{character.character_inteligence}}
             </td>
             <td>
-                {{character.faith}}
+                {{character.character_faith}}
             </td>
             <td>
-                {{character.HP}}
+                {{character.character_health}}
             </td>
             <td>
-                {{character.MP}}
+                {{character.character_mana}}
+            </td>
+            <td>
+                {{character.adventure_name}}
+            </td>
+            <td>
+                <form method="POST" action="{{ url_for('delete_character', character_id=character.id) }}">
+                    <input type="submit" value="poista hahmo">
+                </form>
             </td>
         </tr>
         {% endfor %}

@@ -33,16 +33,22 @@ class Character(db.Model):
 
     @staticmethod
     def find_users_characters(user_id):
-        stmt = text("SELECT * FROM character WHERE (account_id = %d);" % user_id)
+        stmt = text("SELECT character.id, character.character_name, "
+        "character.character_class, character.character_race, character.character_strength, "
+        "character.character_dexterity, character.character_inteligence, character.character_faith, "
+        "character.character_health, character.character_mana, adventure.adventure_name "
+        "FROM character INNER JOIN adventure ON character.adventure_id=adventure.id "
+        "WHERE character.account_id = :id;");
 
-        res = db.engine.execute(stmt)
+        res = db.engine.execute(stmt, id=user_id)
 
         response = []
 
         for row in res:
-            response.append({"name":row[1], "class":row[2], "race":row[3], 
-            "str":row[4], "dex":row[5], "int":row[6], "faith":row[7], "HP":row[8], "MP":row[9] })
-
+            response.append({"id":row[0],"character_name":row[1], "character_class":row[2], "character_race":row[3], 
+            "character_strength":row[4], "character_dexterity":row[5], "character_inteligence":row[6], "character_faith":row[7],
+            "character_health":row[8], "character_mana":row[9], "adventure_name":row[10]})
+            
         return response
     
     @staticmethod
