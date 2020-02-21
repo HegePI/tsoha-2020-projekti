@@ -1,5 +1,6 @@
 from application import db
 from sqlalchemy.sql import text
+from sqlalchemy.orm import relationship
 
 class Adventure(db.Model):
 
@@ -10,6 +11,7 @@ class Adventure(db.Model):
     created = db.Column(db.DateTime, default=db.func.current_timestamp())
     ongoing = db.Column(db.Integer, nullable=False)
     dungeon_master = db.Column(db.Integer, db.ForeignKey('accounts.id'),nullable=False)
+    character = relationship("Character", cascade="all, delete", backref="Adventure")
     
 
     def __init__(self, name, ongoing, dm):

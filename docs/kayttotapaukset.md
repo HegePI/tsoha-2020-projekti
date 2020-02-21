@@ -15,17 +15,17 @@ Toteutetut User storyt on ruksittu.
 - [x] Käyttäjänä voin liittyä seikkailuun, kunhan en ole seikkailun dungeon master.
 
 - [ ] Käyttäjänä voin luoda uuden hahmon sovellukseen
-    * Vaatii character-adventure liitostaulun olemassa olon
+    * Vaatii character-adventure liitostaulun olemassaolon
 
 - [ ] käyttäjänä voin poistaa luomani hahmon seikkailusta
-    * Vaatii character-adventure liitostaulun olemassa olon
+    * Vaatii character-adventure liitostaulun olemassaolon
 
 - [x] käyttäjänä voin poistaa luomani hahmon sovelluksesta
 
 - [ ] Käyttäjänä voin liittää hahmoni seikkailuun
-    * Vaatii character-adventure liitostaulun olemassa olon
+    * Vaatii character-adventure liitostaulun olemassaolon
 
-- [ ] Käyttäjänä voin poistaa luomani seikkailun
+- [x] Käyttäjänä voin poistaa luomani seikkailun
 
 - [ ] käyttäjänä voin lisätä seikkailussa olevalle hahmolle esineitä, jos olen seikkailun dungeon master
 

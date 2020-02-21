@@ -9,7 +9,8 @@ class User(db.Model):
     username = db.Column(db.String(120), nullable=False)
     password = db.Column(db.String(120), nullable=False)
     role = db.Column(db.String(20), nullable=False)
-    character = relationship("Character", cascade="all,delete", backref="User")
+    character = relationship("Character", cascade="all, delete", backref="User")
+    adventure = relationship("Adventure", cascade="all, delete", backref="User")
 
     def __init__(self, username, password, role):
         self.username = username
