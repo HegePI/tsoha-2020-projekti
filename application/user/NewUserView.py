@@ -3,7 +3,7 @@ from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_bcrypt import Bcrypt
 from application.user.UserModel import User
 from application.user.NewUserForm import NewUserForm
-from application.login.LoginForm import LoginForm
+from application.user.LoginForm import LoginForm
 
 def __resolve_admin(admin):
         if admin:

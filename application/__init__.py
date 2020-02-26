@@ -47,15 +47,10 @@ def login_required(_func=None, *, role="ANY"):
     return wrapper if _func is None else wrapper(_func)
 
 from application import views
-
-from application.login import LoginView
-from application.menu import MenuView
-from application.user import NewUserView
-from application.user import EditUserInfoView
-from application.character import NewCharacterView
-from application.adventure import NewAdventureView
-from application.character import AllCharacterView
-from application.adventure import AdventureListView
+ 
+from application.user import NewUserView, EditUserInfoView, LoginView
+from application.character import NewCharacterView, AllCharacterView 
+from application.adventure import NewAdventureView, AdventureListView, MenuView
 
 from application.user import UserModel
 from application.character import CharacterModel

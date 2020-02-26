@@ -3,7 +3,7 @@ from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_login import login_user, logout_user
 from flask_bcrypt import Bcrypt
 from application.user.UserModel import User
-from application.login.LoginForm import LoginForm
+from application.user.LoginForm import LoginForm
 
 
 @app.route("/login")
