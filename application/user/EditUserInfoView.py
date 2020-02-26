@@ -18,18 +18,24 @@ def edit_userinfo():
     new_username = form.username.data
     new_password = form.password.data
 
-    hashed_new_password = bcrypt.generate_password_hash(new_password, 10)
+    existing_user = User.query.filter_by(username=new_username).first()
 
-    utf8_hashed_password = hashed_new_password.decode("utf-8", "ignore")
+    if not existing_user:
+        hashed_new_password = bcrypt.generate_password_hash(new_password, 10)
 
-    user = User.query.get(current_user.id)
+        utf8_hashed_password = hashed_new_password.decode("utf-8", "ignore")
 
-    user.username = new_username
-    user.password = utf8_hashed_password
+        user = User.query.get(current_user.id)
+
+        user.username = new_username
+        user.password = utf8_hashed_password
     
-    db.session().commit()
+        db.session().commit()
 
-    return render_template("user/editUserInfo.html", form = EditUserForm(), message="Käyttäjän tiedot muokattiin onnistuneesti!")
+        return render_template("user/editUserInfo.html", form = EditUserForm(), message="Käyttäjän tiedot muutettiin onnistuneesti!")
+    
+    else:
+        return render_template("user/editUserInfo.html", form = EditUserForm(), message="Kyseinen käyttäjänimi on jo käytössä!")
 
 @app.route("/editUserInfo/delete", methods=["POST"])
 @login_required
