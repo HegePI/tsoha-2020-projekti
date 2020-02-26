@@ -1,18 +1,18 @@
-from application import app, db
+from application import app, db, login_required
 from flask import Flask, flash, redirect, render_template, request, url_for
-from flask_login import current_user, login_required
+from flask_login import current_user
 from application.adventure.AdventureModel import Adventure
 from application.adventure.NewAdventureForm import NewAdventureForm
 
 
 @app.route("/newAdventure")
-@login_required
+@login_required(role="ANY")
 def new_adventure_form():
     return render_template("adventure/newAdventure.html", form = NewAdventureForm())
 
 
 @app.route("/newAdventure", methods=["POST"])
-@login_required
+@login_required(role="ANY")
 def create_new_adventure():
 
     form = NewAdventureForm(request.form)

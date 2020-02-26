@@ -1,13 +1,13 @@
-from application import app, db, bcrypt
+from application import app, db, bcrypt, login_required
 from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_bcrypt import Bcrypt
-from flask_login import current_user, login_required
+from flask_login import current_user
 from application.character.NewCharacterForm import NewCharacterForm
 from application.character.CharacterModel import Character
 from application.adventure.AdventureModel import Adventure
 
 @app.route("/newCharacter/<int:adventure_id>/")
-@login_required
+@login_required(role="ANY")
 def join_adventure_form(adventure_id):
 
     adventure = Adventure.query.filter_by(id=adventure_id).first()
@@ -19,7 +19,7 @@ def join_adventure_form(adventure_id):
     return render_template("/character/newCharacter.html", form = NewCharacterForm(), adventure=adventure)
 
 @app.route("/newCharacter/<int:adventure_id>/", methods=["POST"])
-@login_required
+@login_required(role="ANY")
 def create_new_character(adventure_id):
     
     adventure = Adventure.query.filter_by(id=adventure_id).first()

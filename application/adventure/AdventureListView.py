@@ -4,7 +4,7 @@ from flask_login import current_user
 from application.adventure.AdventureModel import Adventure
 
 @app.route("/<int:id>/adventures")
-@login_required
+@login_required(role="ANY")
 def list_users_adventures(id):
     return render_template("/adventure/showUsersAdventures.html", 
     ongoing_adventures=Adventure.query.filter_by(dungeon_master=current_user.id, ongoing=1).all(),
