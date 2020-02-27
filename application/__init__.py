@@ -51,7 +51,7 @@ from application import views
 from application.user import NewUserView, EditUserInfoView, LoginView
 from application.character import NewCharacterView, AllCharacterView 
 from application.adventure import NewAdventureView, AdventureListView, MenuView
-from application.item import NewItemView
+from application.item import NewItemView, AllItemsView, EditItemView
 
 from application.user import UserModel
 from application.character import CharacterModel

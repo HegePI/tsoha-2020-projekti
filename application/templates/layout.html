@@ -28,7 +28,8 @@
                             tietoja</a>
                         <a class="dropdown-item" href="{{ url_for('list_users_characters') }}">Listaa käyttäjän
                             hahmot</a>
-                        <a class="dropdown-item" href="{{ url_for('list_users_adventures', id=current_user.id) }}">Listaa käyttäjän
+                        <a class="dropdown-item"
+                            href="{{ url_for('list_users_adventures', id=current_user.id) }}">Listaa käyttäjän
                             seikkailut</a>
                     </ul>
                 </li>
@@ -56,32 +57,35 @@
                     </ul>
                 </li>
             </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Esineet
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="{{url_for('new_item_form')}}">Lisää uusi esine</a>
-                    </ul>
-                </li>
-            </ul>
-            <ul class=" navbar-nav ml-auto">
+            <ul class=" navbar-nav">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="logoutDropdown" role="button"
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Kirjaudu ulos
+                                    Esineet
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="logoutDropdown">
-                                    <a class="dropdown-item" href="{{ url_for('logout') }}">Kirjaudu ulos
-                                        sovelluksesta</a>
+                                <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="{{url_for('new_item_form')}}">Lisää uusi esine</a>
+                                    <a class="dropdown-item" href="{{url_for('list_all_items')}}">Listaa kaikki
+                                        esineet</a>
                                 </ul>
                             </li>
                     </ul>
-                    {% else %}
-                    <a href="{{ url_for('login') }}">Login</a>
-                    {% endif %}
+            </ul>
+            <ul class=" navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="logoutDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Kirjaudu ulos
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="logoutDropdown">
+                        <a class="dropdown-item" href="{{ url_for('logout') }}">Kirjaudu ulos
+                            sovelluksesta</a>
+                    </ul>
+                </li>
+            </ul>
+            {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            {% endif %}
         </div>
     </nav>
     {% block body %}
