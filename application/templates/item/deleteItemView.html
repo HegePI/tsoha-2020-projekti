@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if message %}
+{{ message }}
+{% endif %}
+
+{% if error %}
+<p class=error />
+<strong>{{ error }}</strong>
+{% endif %}
+
+<h2>Haluatko varmasti poistaa esineen {{item.item_name}}</h2>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <th>Nimi</th>
+        <th>Kuvaus</th>
+    </thead>
+    <tbody>
+        <td>{{item.item_name}}</td>
+        <td>{{item.item_description}}</td>
+    </tbody>
+</table>
+
+<div>
+    <form method="POST" action="{{ url_for('delete_item', id=item.id) }}" style="display: inline-block">
+        <input type="submit" value="Yes" />
+    </form>
+    <form method=" GET" action="{{ url_for('list_all_items') }}" style="display: inline-block">
+        <input type="submit" value="No" />
+    </form>
+</div>
+{% endblock %}
