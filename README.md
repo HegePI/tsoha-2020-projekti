@@ -11,7 +11,7 @@ Alustavassa versioissa sovelluksessa on mahdollista aloittaa uusi seikkailu, jon
 
 ## [Sovelluksen käyttöohjeet](https://github.com/HegePI/tsoha-2020-projekti/blob/master/docs/kayttoohje.md)
 
-## [Sovelluksen asennus/jatkokehitysohjeet](https://github.com/HegePI/tsoha-2020-projekti/blob/master/docs/kayttoohje.md)
+## [Sovelluksen asennus/jatkokehitysohjeet](https://github.com/HegePI/tsoha-2020-projekti/blob/master/docs/asennusohje.md)
 
 ## [Alustava tietokannan relaatiomalli](https://github.com/HegePI/tsoha-2020-projekti/blob/master/docs/tietokantakaavio.md)
 
