@@ -16,39 +16,18 @@
 <table class="table table-striped">
     <thead class="thead-dark">
         <tr>
-            <th>
-                Nimi
-            </th>
-            <th>
-                Luokka
-            </th>
-            <th>
-                Rotu
-            </th>
-            <th>
-                Voima
-            </th>
-            <th>
-                Hienomotoriikka
-            </th>
-            <th>
-                Äly
-            </th>
-            <th>
-                Usko
-            </th>
-            <th>
-                Elinvoima
-            </th>
-            <th>
-                Mana
-            </th>
-            <th>
-                Seikkailu
-            </th>
-            <th>
-                #Poista
-            </th>
+            <th>Nimi</th>
+            <th>Luokka</th>
+            <th>Rotu</th>
+            <th>Voima</th>
+            <th>Hienomotoriikka</th>
+            <th>Äly</th>
+            <th>Usko</th>
+            <th>Elinvoima</th>
+            <th>Mana</th>
+            <th>Seikkailu</th>
+            <th># Muokkaa</th>
+            <th># Poista</th>
         </tr>
     </thead>
     <tbody>
@@ -82,6 +61,11 @@
             </td>
             <td>
                 {{character.adventure_name}}
+            </td>
+            <td>
+                <form method="GET" action="{{ url_for('edit_character_form', character_id=character.id) }}">
+                    <input type="submit" value="muokkaa hahmoa" />
+                </form>
             </td>
             <td>
                 <form method="POST" action="{{ url_for('delete_character', character_id=character.id) }}">
