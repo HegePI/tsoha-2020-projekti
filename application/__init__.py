@@ -49,12 +49,13 @@ def login_required(_func=None, *, role="ANY"):
 from application import views
  
 from application.user import NewUserView, EditUserInfoView, LoginView
-from application.character import NewCharacterView, AllCharacterView 
+from application.character import NewCharacterView, AllCharacterView, AddItemView
 from application.adventure import NewAdventureView, AdventureListView, MenuView
 from application.item import NewItemView, AllItemsView, EditItemView, DeleteItemView
 
 from application.user import UserModel
 from application.character import CharacterModel
+from application.character import characterItemModel
 from application.adventure import AdventureModel
 from application.item import ItemModel
 

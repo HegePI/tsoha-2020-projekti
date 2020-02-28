@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if message %}
+{{ message }}
+{% endif %}
+
+{% if error %}
+<p class=error /><strong>{{ error }}</strong>
+{% endif %}
+
+<h2>Lisää hahmolle uusi esine</h2>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Esineen nimi
+            </th>
+            <th>
+                Esineen kuvaus
+            </th>
+            <th>
+                Lisää
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>
+                {{item.item_name}}
+            </td>
+            <td>
+                {{item.item_description}}
+            </td>
+            <td>
+                <form method="POST" action="{{ url_for('add_item', character_id=character.id, item_id=item.id) }}">
+                    <input type="submit" value="lisää esine"></input>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

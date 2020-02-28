@@ -1,4 +1,6 @@
 from application import db
+from application.character.characterItemModel import characterItem
+from sqlalchemy.orm import relationship
 from sqlalchemy.sql import text
 
 class Character(db.Model):
@@ -17,6 +19,7 @@ class Character(db.Model):
     character_mana = db.Column(db.Integer)
     account_id = db.Column(db.Integer, db.ForeignKey('accounts.id'),nullable=False)
     adventure_id = db.Column(db.Integer, db.ForeignKey('adventure.id'),nullable=False)
+    items = relationship("characterItem", back_populates="character")
 
     def __init__(self, c_name, c_class, c_race, c_strength, c_dexterity, c_inteligence, c_faith, c_health, c_mana, account_id, adventure_id):
         self.character_name = c_name

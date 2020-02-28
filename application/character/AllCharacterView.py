@@ -13,7 +13,7 @@ def list_users_characters():
     return render_template("/character/showUsersCharacters.html",
      characters=Character.find_users_characters(user_id=current_user.id))
 
-@app.route("/allCharacters")
+@app.route("/allCharacters/")
 @login_required(role="ADMIN")
 def list_all_characters():
     return render_template("/character/showAllCharacters.html", characters=Character.find_all_characters())
