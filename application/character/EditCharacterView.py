@@ -12,7 +12,19 @@ def edit_character_form(character_id):
     character = Character.query.filter_by(id=character_id).first()
     character_form = NewCharacterForm()
 
-    return render_template("/character/editCharacter.html", form = NewCharacterForm(), 
+    character_form.character_name.data = character.character_name
+    character_form.character_class.data = character.character_class
+    character_form.character_race.data = character.character_race
+    character_form.character_strength.data = character.character_strength
+    character_form.character_dexterity.data = character.character_dexterity
+    character_form.character_inteligence.data = character.character_inteligence
+    character_form.character_faith.data = character.character_faith
+    character_form.character_health.data = character.character_health
+    character_form.character_mana.data = character.character_mana
+    
+
+    return render_template("/character/editCharacter.html", 
+    form = character_form, 
     character=Character.query.filter_by(id=character_id).first())
 
 @app.route("/editCharacter/<int:character_id>/", methods=["POST"])
