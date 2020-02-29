@@ -7,7 +7,10 @@ from application.user.EditUserForm import EditUserForm
 @app.route("/editUserInfo")
 @login_required(role="ANY")
 def edit_userinfo_form():
-    return render_template("user/editUserInfo.html", form = EditUserForm())
+    form = EditUserForm()
+    user = User.query.filter_by(id=current_user.id).first()
+    form.username.data = user.username
+    return render_template("user/editUserInfo.html", form = form)
 
 @app.route("/editUserInfo", methods=["POST"])
 @login_required(role="ANY")
